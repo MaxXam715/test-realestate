@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  SERVER_HOST: s744875.smrtp.ru
+  SERVER_HOST: s744875.smrtp.ru@22122
   SERVER_USER: user744875
   SERVER_PORT: 22122
   SERVER_PATH: /var/www/user744875/data/www/ayu-dag.ru
@@ -27,12 +27,12 @@ jobs:
         with:
           node-version: '18.x'
           key: "${{ secrets.KEY }}"
-          known_hosts: ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
-          if_key_exists: fail
+          known_hosts: unnecessary
+          if_key_exists: replace
 
       # Adding Known Hosts
-#      - name: Adding Known Hosts
-#        run: ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
 
       # Deploy
       - name: Connect on remote server and deploy
