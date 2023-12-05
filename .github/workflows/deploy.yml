@@ -29,10 +29,6 @@ jobs:
           known_hosts: unnecessary
           if_key_exists: replace
 
-      # Adding Known Hosts
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
-
       # Deploy
       - name: Connect on remote server and deploy
         uses: D3rHase/ssh-command-action@v0.2.2
