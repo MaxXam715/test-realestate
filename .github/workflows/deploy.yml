@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  SERVER_HOST: user744875.smrtp.ru
+  SERVER_HOST: 188.127.225.100
   SERVER_USER: user744875
   SERVER_PORT: 22122
   SERVER_PASS: m3WfF65xoCpG
