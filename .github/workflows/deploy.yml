@@ -35,7 +35,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{env.SERVER_HOST}}
-          post: ${{env.SERVER_PORT}}
+          port: ${{env.SERVER_PORT}}
           username: ${{env.SERVER_USER}}
           password: ${{env.SERVER_PASS}}
           private_key: ${{secrets.KEY}}
