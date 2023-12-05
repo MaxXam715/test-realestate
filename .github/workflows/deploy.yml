@@ -32,13 +32,13 @@ jobs:
 
       # Adding Known Hosts
       - name: Adding Known Hosts
-        run: ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H ${{env.SERVER_HOST}}@${{env.SERVER_PORT}} >> ~/.ssh/known_hosts
 
       # Deploy
       - name: Connect on remote server and deploy
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: ${{env.SERVER_HOST}}@${{env.SERVER_PORT}}
+          host: ${{env.SERVER_HOST}}
           post: ${{env.SERVER_PORT}}
           user: ${{env.SERVER_USER}}
           private_key: ${{secrets.KEY}}
