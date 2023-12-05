@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  SERVER_HOST: s744875.smrtp.ru@22122
+  SERVER_HOST: s744875.smrtp.ru
   SERVER_USER: user744875
   SERVER_PORT: 22122
   SERVER_PATH: /var/www/user744875/data/www/ayu-dag.ru
@@ -38,7 +38,7 @@ jobs:
       - name: Connect on remote server and deploy
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: ${{env.SERVER_HOST}}
+          host: ${{env.SERVER_HOST}}@${{env.SERVER_PORT}}
           post: ${{env.SERVER_PORT}}
           user: ${{env.SERVER_USER}}
           private_key: ${{secrets.KEY}}
