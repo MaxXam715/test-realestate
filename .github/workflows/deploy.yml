@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '18.x'
           key: "${{ secrets.KEY }}"
-          known_hosts: ${{secrets.KEY}}
+          known_hosts: ${{env.KNOWN_HOSTS}}
 
       # Adding Known Hosts
       - name: Adding Known Hosts
