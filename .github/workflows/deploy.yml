@@ -7,7 +7,7 @@ on:
 
 env:
   SERVER_HOST: s744875.smrtp.ru
-  SERVER_USER: s744875
+  SERVER_USER: user744875
   SERVER_PATH: /var/www/user744875/data/www/ayu-dag.ru
 
 jobs:
@@ -28,7 +28,8 @@ jobs:
           key: "${{ secrets.KEY }}"
           known_hosts: "just-a-placeholder-so-we-dont-get-errors"
 
-      - name: Generate auth hosts
+      # Adding Known Hosts
+      - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       # Deploy
