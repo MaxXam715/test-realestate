@@ -31,13 +31,17 @@ jobs:
           node-version: '18.x'
           key: "${{ secrets.KEY }}"
           known_hosts: ${{env.KNOWN_HOSTS}}
+          if_key_exists: fail
+
+      - name: rsync over SSH
+        run: rsync -r ./foo/ user@remote:bar/
 
       # Adding Known Hosts
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       # Deploy
-      - name: Run command on remote server
+      - name: Connect on remote server and deploy
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
           host: ${{env.SERVER_HOST}}
