@@ -7,7 +7,7 @@ on:
 
 env:
   SERVER_HOST: s744875.smrtp.ru
-  SERVER_USER: s744875
+  SERVER_USER: user744875
   SERVER_PATH: /var/www/user744875/data/www/ayu-dag.ru
 
 jobs:
